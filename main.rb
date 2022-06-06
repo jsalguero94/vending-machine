@@ -62,7 +62,7 @@ end
 
 def drink_selected(drink_option)
   drink = @init_drinks[drink_option]
-  if validate_selected_drink drink
+  if valid_drink? drink
     puts "You choosed: #{drink[:name]}\nCost: #{drink[:cost]}"
     get_money drink
     update_drink drink_option
@@ -71,7 +71,7 @@ def drink_selected(drink_option)
   gets.chomp
 end
 
-def validate_selected_drink(drink)
+def valid_drink?(drink)
   if drink.nil?
     puts 'Drink does not exists'
     false
